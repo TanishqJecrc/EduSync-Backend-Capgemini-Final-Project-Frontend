@@ -1,24 +1,64 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './Components/Auth/Login';
+import {Routes,Route,Link,useLocation,BrowserRouter as Router} from 'react-router-dom';
+import { isLoggedIn } from './utils/auth';
+import Navbar from './Components/Navbar';
+import Register from './Components/Auth/Register';
+import Dashboard from './Components/Student/StudentDashboard';
+import InstructorDashboard from './Components/Instructor/InstructorDashboard';
+import CourseGroupView from './Components/Instructor/CourseGroupView';
+import CourseView from './Components/Instructor/CourseView';
+import ContentView from './Components/Instructor/ContentView';
+import CourseAssessment from './Components/Instructor/CourseAssessment';
+import StudentHome from './Components/Student/StudentHome';
+
+import ViewModule from './Components/Student/ViewModule';
+import StudentDashboard from './Components/Student/StudentDashboard';
+import ViewEnrolledModule from './Components/Student/ViewEnrolledModule';
+import ViewContent from './Components/Student/ViewContent';
+import NotFound from './utils/NotFound';
+
+
+
+function AppContent() {
+  const location = useLocation();
+  const hideNavbarOn = ['/login', '/register'];
+
+  // Hide navbar on login and register pages
+  const shouldShowNavbar = isLoggedIn() && !hideNavbarOn.includes(location.pathname);
+
+  return (
+    <>
+      {shouldShowNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/instructordashboard" element={<InstructorDashboard />} />
+        <Route path="/course-groups/:courseGroupId" element={<CourseGroupView />} />
+        <Route path="/course/:courseId" element={<CourseView />} />
+        <Route path="/content/:courseContentId" element={<ContentView />} />
+        <Route path="/Course/:courseId/Assessment" element={<CourseAssessment />} />
+        <Route path="/StudentHome" element={<StudentHome />} />
+        <Route path="/MyCourses" element={<StudentDashboard />} />
+        <Route path="/ViewModule/:courseId" element={<ViewModule/>} />
+        <Route path="/:courseId/ViewModule" element={<ViewEnrolledModule />} />
+        <Route path="*" element={<NotFound/>} />
+        <Route path="/:contentId/ViewContent" element={<ViewContent />} />
+      
+        {/* ...other routes */}
+      </Routes>
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
