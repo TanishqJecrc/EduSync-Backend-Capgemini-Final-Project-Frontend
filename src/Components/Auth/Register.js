@@ -13,6 +13,13 @@ function Register() {
 
   function handleRegister(e) {
     e.preventDefault();
+
+    const form = e.target.closest('form');
+  if (!form.checkValidity()) {
+    form.reportValidity(); // Show browser validation errors
+    return;
+  }
+  
     axiosInstance
       .post("/Auth/register", {
         email: email,
@@ -43,16 +50,16 @@ function Register() {
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
 <Icon path={mdiAccount} size={1} /> Name</label>
-            <input type="text" onChange={(e) => setName(e.target.value)}  className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input type="text" onChange={(e) => setName(e.target.value)}  className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
             </div>
             <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
 <Icon path={mdiEmail} size={1} /> Email address</label>
-            <input type="email" onChange={(e) => setEmail(e.target.value)}  className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input type="email" onChange={(e) => setEmail(e.target.value)}  className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
             </div>
             <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label"><Icon path={mdiFormTextboxPassword} size={1} /> Password</label>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword1" />
+            <input type="password" onChange={(e) => setPassword(e.target.value)} minLength="8" className="form-control" id="exampleInputPassword1" required />
             </div>
             <label htmlFor="role" className="form-label"><Icon path={mdiCardAccountDetails} size={1} />  Register As</label>
             <div className="mb-3" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '10px' }}>
