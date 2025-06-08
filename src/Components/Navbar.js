@@ -28,16 +28,16 @@ function Navbar() {
     <>
       <Link className="nav-link" to="/StudentHome"><Icon path={mdiHome} size={0.8} /> Home</Link>
       <Link className="nav-link" to="/MyCourses"><Icon path={mdiBookshelf} size={0.8} /> My Courses</Link>
-      <Link className="nav-link" to="/My-Profile"><Icon path={mdiBadgeAccount} size={0.8} /> Profile</Link>
-      <Link className="nav-link" to="/My-Results"><Icon path={mdiFinance} size={0.8} /> My Results</Link>
+      <Link className="nav-link" to="/MyProfile"><Icon path={mdiBadgeAccount} size={0.8} /> Profile</Link>
+      <Link className="nav-link" to="/MyResults"><Icon path={mdiFinance} size={0.8} /> My Results</Link>
     </>
   );
 
   const instructorLinks = (
     <>
       <Link className="nav-link" to="/instructordashboard"> <Icon path={mdiMonitorDashboard} size={0.8} />Dashboard</Link>
-      <Link className="nav-link" to="/My-Profile"> <Icon path={mdiBadgeAccount} size={0.8} />Profile</Link>
-      <Link className="nav-link" to="/Analyt-ics"> <Icon path={mdiChartScatterPlotHexbin} size={0.8} />Analytics</Link>
+      <Link className="nav-link" to="/MyProfile"> <Icon path={mdiBadgeAccount} size={0.8} />Profile</Link>
+      <Link className="nav-link" to="/Analytics"> <Icon path={mdiChartScatterPlotHexbin} size={0.8} />Analytics</Link>
     </>
   );
 
@@ -65,7 +65,7 @@ function Navbar() {
               }}
             />
             {/* Neon effect only on text */}
-            <span className="">EduSync</span>
+            <span className="edusync-borel-neon">EduSync</span>
           </Link>
           <button className="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"

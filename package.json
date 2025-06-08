@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/event-hubs": "^6.0.0",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@testing-library/dom": "^10.4.0",

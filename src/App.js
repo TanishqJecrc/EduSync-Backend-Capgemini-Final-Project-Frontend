@@ -18,7 +18,10 @@ import StudentDashboard from './Components/Student/StudentDashboard';
 import ViewEnrolledModule from './Components/Student/ViewEnrolledModule';
 import ViewContent from './Components/Student/ViewContent';
 import NotFound from './utils/NotFound';
-
+import TakeAssessment from './Components/Student/TakeAssessment';
+import Profile from './Components/Auth/Profile';
+import ViewResults from './Components/Student/ViewResults';
+import InstructorAnalytics from './Components/Instructor/InstructorAnalytics';
 
 
 function AppContent() {
@@ -47,7 +50,10 @@ function AppContent() {
         <Route path="/:courseId/ViewModule" element={<ViewEnrolledModule />} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/:contentId/ViewContent" element={<ViewContent />} />
-      
+        <Route path="/TakeAssessment/:courseId" element={<TakeAssessment />} />
+        <Route path="/MyProfile" element={<Profile />} />
+        <Route path="/MyResults" element={<ViewResults />} />
+        <Route path="/Analytics" element={<InstructorAnalytics />} />
         {/* ...other routes */}
       </Routes>
     </>

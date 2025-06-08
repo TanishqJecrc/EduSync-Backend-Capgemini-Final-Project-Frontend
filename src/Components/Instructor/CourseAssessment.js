@@ -323,7 +323,7 @@ function CourseAssessment() {
            <button
                 type="button"
                 className={assessmentExists ? "btn btn-primary" : "btn btn-success"}
-                onClick={assessmentExists ? handleEditAssessment : handleCreateAssessment}
+                onClick={assessmentExists ? handleCreateAssessment : handleCreateAssessment}
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
