@@ -65,7 +65,7 @@ function Navbar() {
               }}
             />
             {/* Neon effect only on text */}
-            <span className="edusync-borel-neon">EduSync</span>
+            <span className="h3">EduSync</span>
           </Link>
           <button className="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
